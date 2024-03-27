@@ -1,0 +1,30 @@
+<annotation>
+  <folder>5-11</folder>
+  <filename>DJI_0002</filename>
+  <path>C:\Users\linkdata\Desktop\1\&#25289;&#26694;\0620\5-11\DJI_0002.jpg</path>
+  <source>
+    <database>Unknown</database>
+  </source>
+  <size>
+    <width>840</width>
+    <height>712</height>
+    <depth>1</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>car</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <polygon>
+      <x1>254</x1>
+      <y1>259</y1>
+      <x2>256</x2>
+      <y2>321</y2>
+      <x3>279</x3>
+      <y3>318</y3>
+      <x4>275</x4>
+      <y4>258</y4>
+    </polygon>
+  </object>
+</annotation>
