@@ -75,7 +75,7 @@ UGPS 水下定位系统是一款高性能、抗干扰能力强大的声学定位
 
 <video src="https://searobotix.com/wp-content/uploads/2022/05/07-UGPS-%E5%B0%8F.mp4" controls="controls" width="100%" height="auto"></video>
 
-![UGPS 水下定位系统简介](./res/img/AOHI/UGPS简介.png)
+![UGPS 水下定位系统简介](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/AOHI/UGPS简介.png)
 
 在线演示：https://demo.waterlinked.com/#/
 
@@ -93,7 +93,7 @@ UGPS 水下定位系统是一款高性能、抗干扰能力强大的声学定位
 
 这就促使维眼公司开发了一套视频激光扫描系统（VLS）. 使用现有的水下高清摄像头和激光线发射器，它将提供更多的附加信息用于可视化检测但并不需要额外增加数据采集的成本。
 
-![](./res/img/北京汇海/flex-without-LASER-scaled.jpg)
+![](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/北京汇海/flex-without-LASER-scaled.jpg)
 
 数据处理包括三个步骤：
 
@@ -106,7 +106,7 @@ ROV 附件上。不可否认的是通过投射一条 “沿着” 或者 “扫�
 
 下图展示激光垂直的打在表面上的情况：
 
-![](./res/img/北京汇海/laser-on-surface-pre.png)
+![](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/北京汇海/laser-on-surface-pre.png)
 
 这种检测的关键是能确定多年来的趋势并预测未来，以便对可能的维修或更换做出相关决定。很可惜，如果没有三维、没有稳定的参考，只能是猜测。这个三维分析的需求开启了视频激光扫描技术的研发，根据结合摄影测量和激光三角测量技术，和两个额外的要求：
 
@@ -124,7 +124,7 @@ ROV 附件上。不可否认的是通过投射一条 “沿着” 或者 “扫�
 谢广明教授领导的课题组研制出一种新型的水下电场通信系统，为目前水下机器人通信提供了一种新思路，相关论文发表于仿生科学领域国际顶级期刊
 Bioinspiration & Biomimetics。
 
-![](./res/img/北大工学院/水下通信系统.jpg)
+![](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/北大工学院/水下通信系统.jpg)
 
 由于水环境的特殊性，水下通信不像陆地上那样方便自如，其一定程度上限制了水下机器人大规模应用。传统水声通信是使用最为广泛的一种通信方法。但因其功耗高、体积大、速率慢，容易受到水体运动及周围障碍物的影响，尤其是在有限或地形复杂的水域通信时，信道多径效应明显，通信质量较差，已经很难满足日益增长的水下通信需求。
 
@@ -155,12 +155,12 @@ Jianwei Zhang 教授，英国帝国理工大学的 Jindong Liu 教授以及北�
 模式进行海底调查时，机器人不搭载机械手。当采用 ROV 模式时，可在现场加载机械手和取样单元，此时机器人通过光纤微缆与母船通信，完成取样作业。在
 “海神” 号多次下潜中，主要以 ROV 作业为主。
 
-![v2-8880c59475dbfbddddf2bec634d7c8bc_r.jpg](./res/img/WHOI/v2-8880c59475dbfbddddf2bec634d7c8bc_r.jpg)
+![v2-8880c59475dbfbddddf2bec634d7c8bc_r.jpg](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/WHOI/v2-8880c59475dbfbddddf2bec634d7c8bc_r.jpg)
 
 伍兹霍尔海洋研究所研制的另一款混合型水下机器人是 “Nereid-UI” HROV，它是在 “海神” 号的基础上研制的，主要用于极地科考和探测。该水下机器人最大工作水深为
 2000 米，携带 20 千米的光纤微缆，并搭载多种生物、化学传感器，可进行大范围的冰下观测和取样作业。该机器人于 2013 年完成了海上试验。
 
-![v2-4235619e4b5dbe4c03c55a6178f5f0f9_r.png](./res/img/WHOI/v2-4235619e4b5dbe4c03c55a6178f5f0f9_r.png)
+![v2-4235619e4b5dbe4c03c55a6178f5f0f9_r.png](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/WHOI/v2-4235619e4b5dbe4c03c55a6178f5f0f9_r.png)
 
 ### (2) 法国海洋开发研究院 - Ariane HROV（“阿丽亚娜” 号）
 
@@ -169,7 +169,7 @@ Jianwei Zhang 教授，英国帝国理工大学的 Jindong Liu 教授以及北�
 号具有缆控（遥控）和自主两种操作模式，可通过普通船舶布放和回收。当其以遥控（ROV）模式运行时，通过光纤与母船连接，实现数据实时传输，当其以自主（AUV）模式运行时，通过水声通信将采集到的数据传至水面。2015
 年 “阿丽亚娜” 号进行了深海试验，最大下潜深度 2011 米。
 
-![v2-8b813f2cc1cbf2267cae78cf20c4638f_r.png](./res/img/IFREMER/v2-8b813f2cc1cbf2267cae78cf20c4638f_r.png)
+![v2-8b813f2cc1cbf2267cae78cf20c4638f_r.png](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/IFREMER/v2-8b813f2cc1cbf2267cae78cf20c4638f_r.png)
 
 ## 3.5 能源管理
 
@@ -182,12 +182,12 @@ Jianwei Zhang 教授，英国帝国理工大学的 Jindong Liu 教授以及北�
 北京汇海推出 SVS-708 水面电源和 SVS-709 水下电源智能电源管理系统，能扩展检查级 ROV (如 Saab Seaeye Falcon) 以及各种 rov
 的脐带缆电力传输能力。
 
-![SVS708-AND-709.jpg](./res/img/北京汇海/SVS708-AND-709.jpg)
+![SVS708-AND-709.jpg](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/北京汇海/SVS708-AND-709.jpg)
 
 SVS-708 水面电源单元中包含的最新一代电子设备能提供电源和脐带缆性能的实时监控，增强了 ROV 在要求苛刻的情况下进行检测和工具操作的能力。SVS-708
 水面电源在机架上安装，水面电源单元的前面板上实时显示输入、最大和最小电压、压降、功耗、电流消耗、温度和功率损耗。
 
-![SVS708.jpg](./res/img/北京汇海/SVS708.jpg)
+![SVS708.jpg](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/北京汇海/SVS708.jpg)
 
 在远程端，SVS-709 水下电源为全新设计，利用最新的大功率固态电子元件，能够快速响应具有挑战性的 ROV
 操作的动态电流。这允许在更宽的电压范围内工作，大大提高了可靠性。
@@ -210,9 +210,9 @@ SVS-708 水面电源能够通过长达 5 公里的脐带缆向 SVS-709 水下电
 
 针对复杂水下环境的光学图像的采集、处理与目标识别等难点问题，课题组成员探究了水下图像采集、水下图像数据集搭建、水下图像增强和复原、水下目标检测与识别、水下双目立体视觉等技术研究，为水下机器人的实际应用提供了强有力的技术支撑。
 
-![](./res/img/北大水下机器人视觉系统/system4-01.png)
+![](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/北大水下机器人视觉系统/system4-01.png)
 
-![](./res/img/北大水下机器人视觉系统/system4-2.gif)
+![](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/北大水下机器人视觉系统/system4-2.gif)
 
 # 4. 国内外研究团队
 
@@ -235,7 +235,7 @@ SVS-708 水面电源能够通过长达 5 公里的脐带缆向 SVS-709 水下电
 
 鳌海为海洋介入需求提供一站式、全方位的系统级产品与技术解决方案 | 0-10000m
 
-![鳌海生态](./res/img/AOHI/鳌海生态.png)
+![鳌海生态](https://cdn.coderjiang.com/doc/whut/software-development-of-underwater-robots/res/img/AOHI/鳌海生态.png)
 
 ### 4.1.2 北京大学水下机器人研究中心
 
