@@ -1,0 +1,559 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+html {
+    font-size: 16px;
+    font-family: 'NotoSansSC';
+}
+
+content {
+    background-image: var(--editorbg)
+}
+
+code,
+.CodeMirror {
+    background-color: rgba(222, 187, 255, 0.05)!important;
+    border-radius: 6px;
+    font-size: 125%;
+    padding: 0.2em 0.4em;
+    font-family: 'SourceCodePro';
+}
+
+#write {
+    max-width: 900px;
+    padding: 30px 50px 20px;
+}
+
+#write p {
+    text-align: left;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.md-image>.md-meta {
+    color: #777777;
+    font-size: 0.9rem;
+    padding: 4px 0;
+}
+
+@page {
+    size: A4;
+    margin: 8mm 0mm;
+}
+
+
+:root {
+    --editorbg: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+    --gutter: 24px;
+    --color1: #9090ff;
+    --color2: #ff761e;
+    --color3: #33d57a;
+    --color4: #ff4e6a;
+    --color5: #ffb900;
+    --color6: #00dbff;
+    --color7: #1a98ff;
+    --color1-bg: rgba(161, 78, 255, 0.15);
+    --color-card: #fff;
+}
+
+
+body {
+    background: var(--color-card);
+    font-size: 17px;
+}
+
+a {
+    -webkit-transition: color 0.35s ease-out;
+    transition: color 0.35s ease-out;
+    color: var(--color1);
+    text-decoration: none;
+    word-wrap: break-word;
+}
+
+a:hover,
+a:focus {
+    color: var(--color1);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 1.7em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2:before {
+    content: '';
+    width: 100%;
+    padding: 0px 24px;
+    border-bottom: 1px solid #eee;
+    position: absolute;
+    bottom: -1px;
+    left: -24px;
+    box-sizing: unset;
+}
+
+h2:after {
+    transition: all 0.35s ease-out;
+    content: '';
+    position: absolute;
+    background: var(--color1);
+    width: 1em;
+    height: 5px;
+    bottom: -3px;
+    left: 0;
+    border-radius: 10px;
+}
+
+h2:hover:after {
+    width: 2em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1.15em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 0.9em;
+}
+
+blockquote {
+    color: #666;
+    margin: 24px 0;
+    padding: 0.1em 2.2em;
+    background-color: #f8f8f8;
+    line-height: 28px;
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+
+ul {
+    padding: 0 0 0 2em;
+    margin-top: 0;
+}
+
+ol {
+    padding: 0 0 0 2.5em;
+    margin-top: 0;
+}
+
+ol {
+    list-style-type: none;
+    counter-reset: item;
+}
+
+ol>li {
+    position: relative;
+    padding: 0.4rem 0;
+    line-height: 24px;
+}
+
+ol>li::before {
+    content: counter(item);
+    counter-increment: item;
+    position: absolute;
+    top: 0.4rem;
+    left: -2.5em;
+    height: 1.6rem;
+    width: 1.6rem;
+    text-align: center;
+    border-radius: 8px;
+    line-height: 1.6rem;
+    background-color: var(--color1-bg);
+    color: var(--color1);
+}
+
+table {
+    color: #5b6064;
+    border-spacing: 0;
+    border-collapse: collapse;
+    max-width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+    margin: 25px auto;
+    background: transparent;
+    display: block;
+}
+
+table::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+table::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
+
+table thead {
+    border-bottom: 1px solid #eee;
+    background-color: #f8f8f8;
+}
+
+table thead tr {
+    background-color: #f8f8f8;
+}
+
+table th {
+    border: 1px solid #eee;
+    padding: 13px 26px;
+    font-weight: 400;
+}
+
+table td {
+    border: 1px solid #eee;
+    padding: 13px 26px;
+}
+
+table tr {
+    background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+    width: auto;
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0 !important;
+}
+
+#write>ul>li {
+    position: relative;
+    padding: 8px 0;
+    padding-left: 25px;
+    line-height: 1rem;
+}
+
+#write>ul>li::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: var(--color1);
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 11px;
+    margin-left: -25px;
+    border-radius: 100%;
+    border: 3px solid #fff;
+    z-index: 100;
+    position: relative;
+}
+
+#write>ul>li::after {
+    content: '';
+    height: 100%;
+    width: 2px;
+    background: var(--color1-bg);
+    position: absolute;
+    left: 6px;
+    top: 20px;
+}
+
+#write>ul>li:last-child:after {
+    display: none;
+}
+
+#write>ul>li>p {
+    top: -1em;
+}
+
+input[type=checkbox] {
+    margin-top: 10px !important;
+}
+
+.md-task-list-item>p {
+    top: -1.5em !important;
+}
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} h1,h2,h3,h4,h5 {white-space:pre-line}
+</style><title>index</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n425"><a class="md-toc-inner" href="#1-概述">1. 概述</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n426"><a class="md-toc-inner" href="#11-研究背景与目的">1.1 研究背景与目的</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n428"><a class="md-toc-inner" href="#12-研究范围">1.2 研究范围</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n430"><a class="md-toc-inner" href="#13-报告结构说明">1.3 报告结构说明</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n432"><a class="md-toc-inner" href="#2-技术背景">2. 技术背景</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n433"><a class="md-toc-inner" href="#21-水下机器人的主要功能与应用">2.1 水下机器人的主要功能与应用</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n450"><a class="md-toc-inner" href="#22-软件在水下机器人中的作用">2.2 软件在水下机器人中的作用</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n467"><a class="md-toc-inner" href="#3-案例研究">3. 案例研究</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n468"><a class="md-toc-inner" href="#31-导航与定位系统">3.1 导航与定位系统</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n531"><a class="md-toc-inner" href="#1-鳌海科技---ugps-水下定位系统">(1) 鳌海科技 - UGPS 水下定位系统</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n545"><a class="md-toc-inner" href="#32-数据采集与处理">3.2 数据采集与处理</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n548"><a class="md-toc-inner" href="#1-北京汇海---水下3d三维可视化检测">(1) 北京汇海 - 水下3D三维可视化检测</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n569"><a class="md-toc-inner" href="#33-通信系统">3.3 通信系统</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n572"><a class="md-toc-inner" href="#1-北大工学院谢广明团队---水下通信系统">(1) 北大工学院谢广明团队 - 水下通信系统</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n583"><a class="md-toc-inner" href="#34-自主决策遥控控制">3.4 自主决策/遥控控制</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n589"><a class="md-toc-inner" href="#1-伍兹霍尔海洋研究所---混合式-rov---nereus-hrov海神-号）--nereid-ui-hrov">(1) 伍兹霍尔海洋研究所 - 混合式 ROV—Nereus HROV（“海神” 号） &amp; “Nereid-UI” HROV</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n594"><a class="md-toc-inner" href="#2-法国海洋开发研究院---ariane-hrov阿丽亚娜-号）">(2) 法国海洋开发研究院 - Ariane HROV（“阿丽亚娜” 号）</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n597"><a class="md-toc-inner" href="#35-能源管理">3.5 能源管理</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n600"><a class="md-toc-inner" href="#1-北京汇海---水下机器人智能电源管理系统">(1) 北京汇海 - 水下机器人智能电源管理系统</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n613"><a class="md-toc-inner" href="#36-环境感知与图像处理">3.6 环境感知与图像处理</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n616"><a class="md-toc-inner" href="#1-北大水下机器人研究中心---水下机器人视觉系统">(1) 北大水下机器人研究中心 - 水下机器人视觉系统</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n624"><a class="md-toc-inner" href="#4-国内外研究团队">4. 国内外研究团队</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n625"><a class="md-toc-inner" href="#41-国内研究团队">4.1 国内研究团队</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n626"><a class="md-toc-inner" href="#411-aohi-鳌海科技">4.1.1 AOHI 鳌海科技</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n639"><a class="md-toc-inner" href="#412-北京大学水下机器人研究中心">4.1.2 北京大学水下机器人研究中心</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n645"><a class="md-toc-inner" href="#42-国外研究团队">4.2 国外研究团队</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n646"><a class="md-toc-inner" href="#421-伍兹霍尔海洋研究所">4.2.1 伍兹霍尔海洋研究所</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n655"><a class="md-toc-inner" href="#422-法国海洋开发研究院">4.2.2 法国海洋开发研究院</a></span></p></div><hr /><h1 id='1-概述'><span>1. 概述</span></h1><h2 id='11-研究背景与目的'><span>1.1 研究背景与目的</span></h2><p><span>水下机器人是一种能够在水下环境中执行任务的自主或遥控机器人。它们通常被用于海洋科学、海洋资源勘探、海底地质调查、水下考古、水下搜救、水下作业等领域。水下机器人的研究和开发涉及到多个学科领域，包括机械工程、电子工程、计算机科学、水声学、海洋学等。软件在水下机器人中的作用主要体现在导航与定位系统、数据采集与处理、通信系统、自主决策/遥控控制、能源管理、环境感知与图像处理等方面。</span></p><h2 id='12-研究范围'><span>1.2 研究范围</span></h2><p><span>本报告主要研究软件在水下机器人中的应用，包括导航与定位系统、数据采集与处理、通信系统、自主决策/遥控控制、能源管理、环境感知与图像处理等方面。通过案例研究，分析国内外研究团队在水下机器人软件开发方面的最新进展，总结其技术特点和应用场景，为相关研究提供参考。</span></p><h2 id='13-报告结构说明'><span>1.3 报告结构说明</span></h2><p><span>本报告主要以案例为主，分析水下机器人软件在导航与定位系统、数据采集与处理、通信系统、自主决策/遥控控制、能源管理、环境感知与图像处理等方面的应用。每个案例包括研究背景、技术特点、应用场景等内容。最后，总结国内外研究团队在水下机器人软件开发方面的最新进展，展望未来的发展趋势。</span></p><h1 id='2-技术背景'><span>2. 技术背景</span></h1><h2 id='21-水下机器人的主要功能与应用'><span>2.1 水下机器人的主要功能与应用</span></h2><p><span>水下机器人是一种能够在水下环境中执行任务的自主或遥控机器人。它们通常被用于海洋科学、海洋资源勘探、海底地质调查、水下考古、水下搜救、水下作业等领域。水下机器人的主要功能包括：</span></p><ul><li><p><span>导航与定位系统：涉及机器人在水下环境中的定位、路径规划、避障以及目标跟踪等功能。这些系统通常依赖于声纳、惯性测量单元(IMU)</span>
+<span>、GPS（水面上）和其他传感器的数据。</span></p></li><li><p><span>数据采集与处理：包括水下影像采集、声纳数据处理、温度和化学成分的测量。软件在这一领域的开发旨在优化数据的收集、传输和处理流程，提高数据质量和分析效率。</span></p></li><li><p><span>通信系统：由于水下环境对电磁波的限制，水下机器人的通信系统多依赖于声学通信。软件开发需要解决数据传输速率低、延迟大、信号易受干扰等问题。</span></p></li><li><p><span>自主决策/遥控控制：涉及机器人自主决策/遥控控制的能力，自主决策包括基于环境感知进行自主避障、目标识别和任务执行等，通常集成了机器学习和人工智能算法。而遥控控制则是指人类操作员通过遥控器或者其他设备对机器人进行控制。</span></p></li><li><p><span>能源管理：旨在优化机器人的能源消耗，延长其在水下的作业时间。这包括电池管理、能源效率优化和能源回收技术等。</span></p></li><li><p><span>环境感知与图像处理：涉及图像识别、3D重建和环境映射等功能，以提高机器人对周围环境的感知和理解能力。</span></p></li><li><p><span>其他功能：如水下机器人的操控系统、机械臂、采样系统等。</span></p></li></ul><h2 id='22-软件在水下机器人中的作用'><span>2.2 软件在水下机器人中的作用</span></h2><p><span>软件在水下机器人中起着至关重要的作用，它是机器人的大脑，负责控制机器人的运动、感知周围环境、执行任务等。软件在水下机器人中的主要作用包括：</span></p><ul><li><p><span>控制系统：负责控制机器人的运动、姿态和操作，保证机器人能够按照预定的路径和速度进行移动和执行任务。</span></p></li><li><p><span>感知系统：负责感知周围环境，包括水下地形、水质、目标物体等信息，以便机器人能够准确地定位、避障和执行任务。</span></p></li><li><p><span>通信系统：负责机器人与地面控制中心或其他机器人之间的通信，传输控制指令、传感器数据和图像信息。</span></p></li><li><p><span>数据处理系统：负责处理传感器采集的数据，包括声纳数据、图像数据、水质数据等，提取有用信息并进行分析。</span></p></li><li><p><span>决策系统：负责根据感知系统采集的数据和任务要求，制定机器人的行动计划，包括路径规划、目标识别和任务执行等。</span></p></li><li><p><span>能源管理系统：负责管理机器人的能源消耗，优化电池使用、能源回收和节能措施，延长机器人在水下的作业时间。</span></p></li><li><p><span>图像处理系统：负责对采集的图像数据进行处理，包括图像识别、目标跟踪、三维重建等功能，提高机器人对周围环境的感知和理解能力。</span></p></li></ul><h1 id='3-案例研究'><span>3. 案例研究</span></h1><h2 id='31-导航与定位系统'><span>3.1 导航与定位系统</span></h2><blockquote><p><span>涉及到机器人在水下环境中的定位、路径规划、避障以及目标跟踪等功能。这些系统通常依赖于声纳、惯性测量单元(IMU)</span>
+<span>、GPS（水面上）和其他传感器的数据。</span></p><ol start='' ><li><p><a href='https://bzxb.cqut.edu.cn/html/202203/2096-2304(2022)03-0022-08.html' target='_blank' class='url'>https://bzxb.cqut.edu.cn/html/202203/2096-2304(2022)03-0022-08.html</a></p></li></ol></blockquote><figure class='table-figure'><table><thead><tr><th><strong><span>定位方式</span></strong></th><th><strong><span>简介</span></strong></th><th><strong><span>适用范围</span></strong></th><th><strong><span>隐蔽性</span></strong></th><th><strong><span>干扰因素</span></strong></th><th><strong><span>待研究方向</span></strong></th></tr></thead><tbody><tr><td><span>惯性/航位推算导航</span></td><td><span>利用惯性器件获得潜器速 度信息,然后对时间积分 得到潜器当前位置</span></td><td><span>全海域</span></td><td><span>好</span></td><td><span>随时间累积,误差不断 增大</span></td><td><span>研制更高精度的惯性 器件,研究更多的辅助 导航技术来修正误差</span></td></tr><tr><td><span>水声学导航（LBL、SBL、USBL）</span></td><td><span>利用声波信号的传输时间及其相位差来确定水下潜器的位置,精确度要高于惯性导航系统</span></td><td><span>受限于声标基阵的作用范围</span></td><td><span>不好</span></td><td><span>系统误差、声速误差、反射路径误差、噪声误差、测量误差</span></td><td><span>降低各误差来源对导航精度的影响</span></td></tr><tr><td><span>SINS/SONAR 组合导航方式</span></td><td><span>在利用惯导系统确定潜器的任务范围,结合水声学 导航修正误差并在基阵作 用范围内进行导航</span></td><td><span>全海域</span></td><td><span>不好</span></td><td><span>系统误差、声速误差、 反射路径误差、噪声误 差、测量误差</span></td><td><span>降低各误差来源对导 航精度的影响</span></td></tr><tr><td><span>SINS/SONAR/GNSS 组合导航方式</span></td><td><span>在SINS/SONAR组合导航 方式的基础上利用 GNSS对声标基阵进行精确定位,同时结合水声通信技术将水下信息与水上指挥 中心进行互通</span></td><td><span>全海域</span></td><td><span>不好</span></td><td><span>GNSS无方向分辨能力,易受地方信号干 扰;水声通信的传播速率与距离成反比</span></td><td><span>提高卫星导航系统的 抗干扰能力;同时提高 水声通信的传播速率与距离</span></td></tr><tr><td><span>结合地球物理的组合导航方式（地形匹配导航、重力匹配导航、地磁匹配导航）</span></td><td><span>由惯性系统限定工作范围, 然后利用数据匹配算法将地球物理测量数据与先验 数据库进行匹配,从而获得水下潜器的实时位置</span></td><td><span>全海域</span></td><td><span>好</span></td><td><span>地球物理数据测量器件的精度;数据匹配算 法的精度和效率;地球物理数据库的规模</span></td><td><span>研制更高精度的测量器件;设计更高效率的数据匹配算法;获得精确、大量的地球物理数据库</span></td></tr><tr><td><span>多UUV 协同导航方式（主从式、并行式）</span></td><td><span>大多采用主从式协同导航 方式,利用一个配备高精度测量传感器的主UUV来确定其他配备低成本测量传感器的UUV的位置</span></td><td><span>全海域</span></td><td><span>不好</span></td><td><span>定位器件及信号交互 过程中的误差</span></td><td><span>研制更高精度的定位器件;设计更好的协同 导航方式</span></td></tr><tr><td><span>结合人工智能的水下定位导航方式</span></td><td><span>利用人工智能技术(如深 度学习算法)对目标完成最终的锁定及定位</span></td><td><span>在近目标区域范围使用</span></td><td><span>不好</span></td><td><span>算法自身的精度及效率</span></td><td><span>提高算法的精确度与速率;与水声通信结 合,改善系统应变效率,设计更加智能的水 下机器人</span></td></tr></tbody></table></figure><h3 id='1-鳌海科技---ugps-水下定位系统'><span>(1) 鳌海科技 - UGPS 水下定位系统</span></h3><blockquote><ol start='' ><li><p><a href='https://searobotix.com/ugps/' target='_blank' class='url'>https://searobotix.com/ugps/</a><span> UGPS 水下定位系统</span></p></li><li><p><a href='https://share.weiyun.com/Yq8XTIxl' target='_blank' class='url'>https://share.weiyun.com/Yq8XTIxl</a><span> UGPS 水下定位系统宣传册</span></p></li><li><p><a href='https://demo.waterlinked.com/#/' target='_blank' class='url'>https://demo.waterlinked.com/#/</a><span> UGPS 水下定位系统在线演示</span></p></li></ol></blockquote><p><span>高性能、抗干扰的短基线定位系统</span></p><p><span>UGPS 水下定位系统是一款高性能、抗干扰能力强大的声学定位系统。其凭借着 300</span>
+<span>米的定位范围，领先市场的强大性能和广泛的应用范围，在全球范围内拥有大量客户，是执行特定任务的不二选择！</span></p><video src="https://searobotix.com/wp-content/uploads/2022/05/07-UGPS-%E5%B0%8F.mp4" controls="controls" width="100%" height="auto"></video><p><img src="./res/img/AOHI/UGPS简介.png" referrerpolicy="no-referrer" alt="UGPS 水下定位系统简介"></p><p><span>在线演示：</span><a href='https://demo.waterlinked.com/#/' target='_blank' class='url'>https://demo.waterlinked.com/#/</a></p><h2 id='32-数据采集与处理'><span>3.2 数据采集与处理</span></h2><blockquote><p><span>包括水下影像采集、声纳数据处理、温度和化学成分的测量。软件在这一领域的开发旨在优化数据的收集、传输和处理流程，提高数据质量和分析效率。</span></p></blockquote><h3 id='1-北京汇海---水下3d三维可视化检测'><span>(1) 北京汇海 - 水下3D三维可视化检测</span></h3><blockquote><ol start='' ><li><p><a href='http://www.huirov.com/' target='_blank' class='url'>http://www.huirov.com/</a><span> 北京汇海官网</span></p></li><li><p><a href='http://www.huirov.com/9167.html' target='_blank' class='url'>http://www.huirov.com/9167.html</a><span> 水下3D三维可视化检测</span></p></li></ol></blockquote><p><span>最近几年，HD 高清摄像头被广泛的布置在水下进行高质量的海洋环境观察，以及水下资产管理，如石油和天然气资产。由于高分辨率传感器（1080P</span>
+<span>和 4K）、过滤器和其他进行视频处理的软件的进步，图像的质量显著提高。直观的可视化会提供物体的颜色和纹理以及整体形状，但这些信息不能用于异常判断。因此，图像解释会受到诸多因素的影响，比如视角、光亮和缺乏尺度。</span></p><p><span>这就促使维眼公司开发了一套视频激光扫描系统（VLS）. 使用现有的水下高清摄像头和激光线发射器，它将提供更多的附加信息用于可视化检测但并不需要额外增加数据采集的成本。</span></p><p><img src="./res/img/北京汇海/flex-without-LASER-scaled.jpg" referrerpolicy="no-referrer"></p><p><span>数据处理包括三个步骤：</span></p><p><span>第一步是高清视频可以实时查看，高分辨率图片可以稍后从视频中提取，如果需要。最近图像质量在显著提高，这个趋势还在延续。不仅传感器的分辨率从标清</span>
+<span>SD 提高到高清 HD，而且现在一些摄像头可以在低照度下获取图像，新的过滤器和软件允许在低能见度下锐化图像。图像无论如何只能从一定视角得到直接的可视化信息，会受它所在位置的外部环境的影响（障碍物，低能见度，水中的微粒和鱼）。</span></p><p><span>第二步是增加一个激光平面发射器去制造一个贯穿物体表面的线。这样的一个激光面或者激光线在水下行业被广泛应用，可以很好的集成到所有标准的</span>
+<span>ROV 附件上。不可否认的是通过投射一条 “沿着” 或者 “扫描”</span>
+<span>物体并表面的线，可以提供对场景的额外理解，从而给出形状的相关可视化信息。增加激光线可以显示图像在没有激光线情况下不可能探测或者理解（至少可以证明或者量化）的突变。这里也有很多局限性，比如当激光垂直的打在表面时会显示几乎没有偏差，尽管表面看起来成脊状的。</span></p><p><span>下图展示激光垂直的打在表面上的情况：</span></p><p><img src="./res/img/北京汇海/laser-on-surface-pre.png" referrerpolicy="no-referrer"></p><p><span>这种检测的关键是能确定多年来的趋势并预测未来，以便对可能的维修或更换做出相关决定。很可惜，如果没有三维、没有稳定的参考，只能是猜测。这个三维分析的需求开启了视频激光扫描技术的研发，根据结合摄影测量和激光三角测量技术，和两个额外的要求：</span></p><ul><li><p><span>在自由飞行模式下工作</span></p></li><li><p><span>使用现有的水下摄像头和激光</span></p></li></ul><h2 id='33-通信系统'><span>3.3 通信系统</span></h2><blockquote><p><span>由于水下环境对电磁波的限制，水下机器人的通信系统多依赖于声学通信。软件开发需要解决数据传输速率低、延迟大、信号易受干扰等问题。</span></p></blockquote><h3 id='1-北大工学院谢广明团队---水下通信系统'><span>(1) 北大工学院谢广明团队 - 水下通信系统</span></h3><blockquote><ol start='' ><li><p><a href='https://www.coe.pku.edu.cn/newsfocus/fast/5591.html' target='_blank' class='url'>https://www.coe.pku.edu.cn/newsfocus/fast/5591.html</a><span> 北大工学院新闻 - 工学院谢广明课题组研制出新型水下通信系统</span></p></li></ol></blockquote><p><span>谢广明教授领导的课题组研制出一种新型的水下电场通信系统，为目前水下机器人通信提供了一种新思路，相关论文发表于仿生科学领域国际顶级期刊</span>
+<span>Bioinspiration &amp; Biomimetics。</span></p><p><img src="./res/img/北大工学院/水下通信系统.jpg" referrerpolicy="no-referrer"></p><p><span>由于水环境的特殊性，水下通信不像陆地上那样方便自如，其一定程度上限制了水下机器人大规模应用。传统水声通信是使用最为广泛的一种通信方法。但因其功耗高、体积大、速率慢，容易受到水体运动及周围障碍物的影响，尤其是在有限或地形复杂的水域通信时，信道多径效应明显，通信质量较差，已经很难满足日益增长的水下通信需求。</span></p><p><span>谢广明教授领导的团队是国内较早展开水下仿生机器人相关研究的人员，强调模仿学习自然界生物特征和功能，在若干方向取得了创新性结果。为解决水下机器人的稳定通信，为日后水下机器人群体的大规模应用，谢广明 &quot;&gt;</span>
+<span>谢广明团队从自然界鱼类的一种特殊行为中获得灵感，开发出了通信稳定、功耗低且对水环境要求极低的水下电场通信系统，并在机器人上进行了系统深入的实验验证。</span></p><p><span>谢广明教授及合作者经过研究发现，自然界有些鱼类如南美电鳗亚目 (Gymnotiformes) 鱼和非洲管嘴鱼科 (Mormyridae)</span>
+<span>鱼，可以主动发射和感知电场实现水下通信。其工作原理为电鱼通过自身特有的发电器官发射电场信号并且释放到周围水域，由于水是良导体，该电场信号会以类电偶极子场的方式进行传播，附近的其他电鱼可以感知第一条电鱼发射的电场信号，并从中提取频率、波形及信号时间间隔等有效信息，从而解读出电场信号中蕴含的信息，实现个体间的水下通信。从电鱼通信中得到启发，研究团队首先把电鱼通信系统抽象建模为由一对发射电偶极子和一对接收电偶极子组成的简化系统，接着对该电场系统进行数值仿真，初步掌握了其传播及分布特性，最后设计开发出了一套新型的仿生电场通信系统。研究团队对该仿生电场系统进行了深入系统地实验研究，分别对比了电场通信在静水、水流流动、有障碍物环境和自然水域中的通信性能，结果表明水中电场通信比水声通信更为稳定，水体运动、障碍物及水质等复杂环境对电场通信影响都很小。目前发射功率仅为</span>
+<span>0.25W 时即可实现水下 3~5</span>
+<span>米的近距离电场通信，增加发射功率和电极间距可进一步提高通信距离，未来具有较大应用前景。该成果以长文 (Regular Paper) 的形式发表于</span>
+<span>Bioinspiration &amp; Biomimetics (W. Wang, J. Liu, G. Xie, L. Wen, and J. Zhang, “A Bio-inspired Electrocommunication System</span>
+<span>for Small Underwater Robots”, Bioinspiration &amp; Biomimetics, 12, 036002, 2017.)。</span></p><p><span>论文的通讯作者为谢广明教授，第一作者为谢广明课题组的博士王伟（目前在美国麻省理工学院机器人研究所做博士后研究）。该工作得到了国家自然科学基金等项目的资助。项目合作者还包括德国汉堡大学的</span>
+<span>Jianwei Zhang 教授，英国帝国理工大学的 Jindong Liu 教授以及北京航空航天大学的文力教授。</span></p><h2 id='34-自主决策遥控控制'><span>3.4 自主决策/遥控控制</span></h2><blockquote><p><span>涉及到机器人自主决策/遥控控制的能力，自主决策包括基于环境感知进行自主避障、目标识别和任务执行等，通常集成了机器学习和人工智能算法。</span>
+<span>而遥控控制则是指人类操作员通过遥控器或者其他设备对机器人进行控制。</span></p><ol start='' ><li><p><a href='https://zhuanlan.zhihu.com/p/516005584' target='_blank' class='url'>https://zhuanlan.zhihu.com/p/516005584</a><span> 自主/遥控水下机器人研究与应用短文</span></p></li></ol></blockquote><h3 id='1-伍兹霍尔海洋研究所---混合式-rov---nereus-hrov海神-号）--nereid-ui-hrov'><span>(1) 伍兹霍尔海洋研究所 - 混合式 ROV—Nereus HROV（“海神” 号） &amp; “Nereid-UI” HROV</span></h3><p><span>国外最具代表性的混合式水下机器人是美国伍兹霍尔海洋研究所（WHOI）研制的混合式 ROV—Nereus HROV（“海神” 号），其最大工作水深为</span>
+<span>11000 米，主要用于地球、生命等科学探索。该水下机器人具有 AUV、ROV 两种作业模式，需要在机器人下水前现场改装。当采用 AUV</span>
+<span>模式进行海底调查时，机器人不搭载机械手。当采用 ROV 模式时，可在现场加载机械手和取样单元，此时机器人通过光纤微缆与母船通信，完成取样作业。在</span>
+<span>“海神” 号多次下潜中，主要以 ROV 作业为主。</span></p><p><img src="./res/img/WHOI/v2-8880c59475dbfbddddf2bec634d7c8bc_r.jpg" referrerpolicy="no-referrer" alt="v2-8880c59475dbfbddddf2bec634d7c8bc_r.jpg"></p><p><span>伍兹霍尔海洋研究所研制的另一款混合型水下机器人是 “Nereid-UI” HROV，它是在 “海神” 号的基础上研制的，主要用于极地科考和探测。该水下机器人最大工作水深为</span>
+<span>2000 米，携带 20 千米的光纤微缆，并搭载多种生物、化学传感器，可进行大范围的冰下观测和取样作业。该机器人于 2013 年完成了海上试验。</span></p><p><img src="./res/img/WHOI/v2-4235619e4b5dbe4c03c55a6178f5f0f9_r.png" referrerpolicy="no-referrer" alt="v2-4235619e4b5dbe4c03c55a6178f5f0f9_r.png"></p><h3 id='2-法国海洋开发研究院---ariane-hrov阿丽亚娜-号）'><span>(2) 法国海洋开发研究院 - Ariane HROV（“阿丽亚娜” 号）</span></h3><p><span>法国海洋开发研究院（IFREMER）研制的 “阿丽亚娜” 号（Ariane HROV）也是一款混合式水下机器人，主要用于沿海冷水珊瑚礁、海底峡谷、海山、悬崖等特殊地形的勘察和生物多样性观测。“阿丽亚娜”</span>
+<span>号重 1800 千克，最大下潜深度 2500 米，搭载有高清摄像机、照相机、水声通信机和两个机械手。“阿丽亚娜”</span>
+<span>号具有缆控（遥控）和自主两种操作模式，可通过普通船舶布放和回收。当其以遥控（ROV）模式运行时，通过光纤与母船连接，实现数据实时传输，当其以自主（AUV）模式运行时，通过水声通信将采集到的数据传至水面。2015</span>
+<span>年 “阿丽亚娜” 号进行了深海试验，最大下潜深度 2011 米。</span></p><p><img src="./res/img/IFREMER/v2-8b813f2cc1cbf2267cae78cf20c4638f_r.png" referrerpolicy="no-referrer" alt="v2-8b813f2cc1cbf2267cae78cf20c4638f_r.png"></p><h2 id='35-能源管理'><span>3.5 能源管理</span></h2><blockquote><p><span>旨在优化机器人的能源消耗，延长其在水下的作业时间。这包括电池管理、能源效率优化和能源回收技术等。</span></p></blockquote><h3 id='1-北京汇海---水下机器人智能电源管理系统'><span>(1) 北京汇海 - 水下机器人智能电源管理系统</span></h3><blockquote><ol start='' ><li><p><a href='http://www.huirov.com/9468.html' target='_blank' class='url'>http://www.huirov.com/9468.html</a><span> 水下机器人智能电源管理系统</span></p></li></ol></blockquote><p><span>北京汇海推出 SVS-708 水面电源和 SVS-709 水下电源智能电源管理系统，能扩展检查级 ROV (如 Saab Seaeye Falcon) 以及各种 rov</span>
+<span>的脐带缆电力传输能力。</span></p><p><img src="./res/img/北京汇海/SVS708-AND-709.jpg" referrerpolicy="no-referrer" alt="SVS708-AND-709.jpg"></p><p><span>SVS-708 水面电源单元中包含的最新一代电子设备能提供电源和脐带缆性能的实时监控，增强了 ROV 在要求苛刻的情况下进行检测和工具操作的能力。SVS-708</span>
+<span>水面电源在机架上安装，水面电源单元的前面板上实时显示输入、最大和最小电压、压降、功耗、电流消耗、温度和功率损耗。</span></p><p><img src="./res/img/北京汇海/SVS708.jpg" referrerpolicy="no-referrer" alt="SVS708.jpg"></p><p><span>在远程端，SVS-709 水下电源为全新设计，利用最新的大功率固态电子元件，能够快速响应具有挑战性的 ROV</span>
+<span>操作的动态电流。这允许在更宽的电压范围内工作，大大提高了可靠性。</span></p><p><span>SVS-708 水面电源能够通过长达 5 公里的脐带缆向 SVS-709 水下电源输送 3.6kW 的功率，这为 SVS-709</span>
+<span>提供了丰富的可能性。更长的缆绳、更大的推进器功率 (或更多的推进器)、更多的工具设备或额外的传感器的功率，或更细的脐带缆 (</span>
+<span>减少导体测量要求)，都可以通过该系统的更高电压智能电源功能实现。</span></p><p><span>此外，该系统能够根据需要调节输入电压，可以在短至 50 米到长至 5Km 的脐带缆之间进行无痛切换，而无需像传统供电系统那样计算和校正电压补偿增益设置。</span></p><p><span>对于长距离隧道检查和使用大功率工具作业，没有什么能与 SVS-708 水面电源和 SVS-709 - 下电源系统的纯电力输送、灵活性和可靠性相匹配。</span></p><h2 id='36-环境感知与图像处理'><span>3.6 环境感知与图像处理</span></h2><blockquote><p><span>涉及图像识别、3D重建和环境映射等功能，以提高机器人对周围环境的感知和理解能力。</span></p></blockquote><h3 id='1-北大水下机器人研究中心---水下机器人视觉系统'><span>(1) 北大水下机器人研究中心 - 水下机器人视觉系统</span></h3><blockquote><ol start='' ><li><p><a href='https://robotics.pkusz.edu.cn/applications/system4/' target='_blank' class='url'>https://robotics.pkusz.edu.cn/applications/system4/</a><span> 北大水下机器人视觉系统</span></p></li></ol></blockquote><p><span>针对复杂水下环境的光学图像的采集、处理与目标识别等难点问题，课题组成员探究了水下图像采集、水下图像数据集搭建、水下图像增强和复原、水下目标检测与识别、水下双目立体视觉等技术研究，为水下机器人的实际应用提供了强有力的技术支撑。</span></p><p><img src="./res/img/北大水下机器人视觉系统/system4-01.png" referrerpolicy="no-referrer"></p><p><img src="./res/img/北大水下机器人视觉系统/system4-2.gif" referrerpolicy="no-referrer"></p><h1 id='4-国内外研究团队'><span>4. 国内外研究团队</span></h1><h2 id='41-国内研究团队'><span>4.1 国内研究团队</span></h2><h3 id='411-aohi-鳌海科技'><span>4.1.1 AOHI 鳌海科技</span></h3><blockquote><ol start='' ><li><p><a href='https://searobotix.com/' target='_blank' class='url'>https://searobotix.com/</a><span> 鳌海科技官网</span></p></li><li><p><a href='https://searobotix.com/about-us/' target='_blank' class='url'>https://searobotix.com/about-us/</a><span> 关于鳌海科技</span></p></li></ol></blockquote><p><span>杭州鳌海海洋工程技术有限公司（以下简称 “鳌海”）是一家以海洋机器人技术为核心的创新型科技企业，具备完整的研发、生产和销售能力，以</span>
+<span>“让探索海洋变得更容易” 为使命，致力于成为世界一流的创新科技企业，为中国乃至世界的海洋科技进步做出卓越贡献。</span></p><p><span>鳌海主营水下智能装备，面向行业客户提供包括遥控水下机器人（ROV），自主水下机器人（AUV），自主水面无人艇（USV），自主水下浮标（AUF），自主遥控水下机器人（ARV），水下拖体（TUV）、深海着陆器（Lander）等产品与技术解决方案。</span></p><p><span>公司产品在科研教育、海洋资源调查、海洋测绘、海洋勘探、水域救援、水利水电、水下安防、船舶检修、海洋牧场、海洋风电等领域正发挥着重要作用。</span></p><p><span>鳌海正以蓬勃的朝气快速发展，获得国家高新技术企业、国家级创新型科技型企业等资质，拥有 ISO9001 质量体系认证、ISO45001</span>
+<span>职业健康安全管理体系认证。“牢记使命、砥砺前行”，鳌海正不断深化发展，旨在成为海洋科技行业的领军企业。</span></p><p><span>鳌海为海洋介入需求提供一站式、全方位的系统级产品与技术解决方案 | 0-10000m</span></p><p><img src="./res/img/AOHI/鳌海生态.png" referrerpolicy="no-referrer" alt="鳌海生态"></p><h3 id='412-北京大学水下机器人研究中心'><span>4.1.2 北京大学水下机器人研究中心</span></h3><blockquote><ol start='' ><li><p><a href='https://robotics.pkusz.edu.cn/' target='_blank' class='url'>https://robotics.pkusz.edu.cn/</a><span> 北京大学智能机器人开放实验室</span></p></li></ol></blockquote><p><span>北京大学智能机器人开放实验室（Open Lab on Human Robot Interaction，Peking University，简称</span>
+<span>PKU-HRI），以机器人视觉感知与自主学习技术为核心，在环境的视觉感知、物体的视觉感知、人体的视觉感知和机器人本体的视觉感知等领域，开展长期、系统、深入的研究。建立面向先进机器人视觉系统的仿生感知与混合智能生态环境，探索机器人智能发育与群体进化的新机制，为推动机器人智能化和产业化，培养高端人才，培育创新成果，探索先进思想。</span></p><h2 id='42-国外研究团队'><span>4.2 国外研究团队</span></h2><h3 id='421-伍兹霍尔海洋研究所'><span>4.2.1 伍兹霍尔海洋研究所</span></h3><blockquote><ol start='' ><li><p><a href='https://www.whoi.edu/who-we-are/' target='_blank' class='url'>https://www.whoi.edu/who-we-are/</a><span>   伍兹霍尔海洋研究所官网</span></p></li><li><p><a href='https://en.wikipedia.org/wiki/Woods_Hole_Oceanographic_Institution' target='_blank' class='url'>https://en.wikipedia.org/wiki/Woods_Hole_Oceanographic_Institution</a><span> 伍兹霍尔海洋研究所维基百科</span></p></li></ol></blockquote><p><span>伍兹霍尔海洋学研究所是世界领先的独立非营利组织，致力于海洋研究、探索和教育。我们的科学家和工程师不断挑战海洋知识的极限，揭示海洋对地球和我们生活的影响。</span>
+<span>伍兹霍尔海洋研究所（英语：Woods Hole Oceanographic Institution）是专注于海洋科学与海洋工程的非盈利私人研究和教学机构，成立于</span>
+<span>1930 年，是美国最大的独立海洋学研究所，拥有教职员工和学生约 1,000 人。</span></p><p><span>该研究所共有六个部门，气候和海洋研究合作研究所，以及一个海洋政策中心。岸上基地位于马萨诸赛州伍兹霍尔。资金主要来自国家科学基金会和其他政府部门的赠款和合同，也有部分来自各种基金会与私人捐助。</span></p><h3 id='422-法国海洋开发研究院'><span>4.2.2 法国海洋开发研究院</span></h3><blockquote><ol start='' ><li><p><a href='https://en.ifremer.fr/' target='_blank' class='url'>https://en.ifremer.fr/</a><span> 法国海洋开发研究院官网</span></p></li><li><p><a href='https://en.wikipedia.org/wiki/IFREMER' target='_blank' class='url'>https://en.wikipedia.org/wiki/IFREMER</a><span> 法国海洋开发研究院维基百科</span></p></li></ol></blockquote><p><span>法国海洋开发研究院（法语：Institut français de recherche pour l&#39;exploitation de la mer；缩写作 IFREMER ）是法国的一个海洋学研究的政府服务组织。</span>
+<span>法国海洋开发研究院成立于 1984 年 6 月 5 日，由原来的法国国家海洋开发中心（le Centre National pour l&#39;EXploitation des</span>
+<span>Océans；CNEXO）及法国海洋渔业技术研究院（l&#39;Institut Scientifique et Technique des Pêches Maritimes；ISTPM）合并而成；而其成因却是基于</span>
+<span>1982 年 12 月 1 日的一个部长会议上的讨论成果， “为了确保一致性和海洋研究的全部效益” 。研究院由下列法国的 3 个部门所隶属和监管：</span></p><ul><li><p><span>法国国家教育研究与技术部</span></p></li><li><p><span>法国农业与渔业部和</span></p></li><li><p><span>法国设备交通与住宅部</span></p></li></ul><p><span>研究院的成员之一 CNEXO 由伊夫・蓓丽于 1967 年创立，以取代原来的 Comexo，即海洋开发委员会（Comité pour l&#39;EXploitation des</span>
+<span>Océans）；而 ISTPM 的前身为海洋渔业科学与技术办公室（Office Scientifique et Technique des Pêches Maritimes；缩写作</span>
+<span>OSPTM），创立于 1918 年 12 月 31 日。</span>
+<span>法国海洋开发研究院的研究活动集中在以下领域：</span></p><ul><li><p><span>监测、利用和改善海洋沿岸</span></p></li><li><p><span>水产养殖生产的监测和优化</span></p></li><li><p><span>渔业资源</span></p></li><li><p><span>海洋及其生物多样性的探索和开发</span></p></li><li><p><span>海洋循环和海洋生态系统、机制、趋势和预测</span></p></li><li><p><span>海洋学服务的主要设施工程</span></p></li><li><p><span>在其活动领域的知识转让和创新</span></p></li></ul><p><span>1985 年，法国海洋开发研究院与罗伯特・巴拉德博士合作，最终成功使探险队找到泰坦尼克号沉船的残骸。1994 年，法国海洋开发研究院协助</span>
+<span>SS John Barry 号打捞其货物。</span>
+<span>法国海洋开发研究院经营一些船只，包括潜艇 Nautile 号。2008 年，法国海洋所与布鲁斯・希利托博士合作，对深海鱼回收装置 PERISCOP</span>
+<span>进行测试和初始运作。</span>
+<span>大型设备研究所</span></p><p>&nbsp;</p></div></div>
+</body>
+</html>
